@@ -12,7 +12,7 @@ var WritingsMap = {
     'b/SLH': "Summons of the Lord of Hosts", // "The Summons of the Lord of Hosts"
     'b/TU': "Tabernacle of Unity", // "The Tabernacle of Unity"
     // 'b/TB': "Tablets of Bahá’u’lláh Revealed After the Kitáb-i-Aqdas", // "Tablets of Bahá’u’lláh Revealed After the Kitáb-i-Aqdas"
-    
+
     'tb/SWB': "Selections from the Writings of the Báb", // "Selections From the Writings of the Báb"
     'ab/ABL': "`Abdu'l-Bahá in London", // '': "‘Abdu’l-Bahá in London"
     'c/BWF': "Bahá'í World Faith", // "Bahá’í World Faith—Selected Writings of Bahá’u’lláh and ‘Abdu’l-Bahá (‘Abdu’l-Bahá’s Section Only)"
@@ -46,12 +46,12 @@ var WritingsMap = {
     'se/UD': "Unfolding Destiny",
     'se/WOB': "World Order of Bahá'u'lláh", // "The World Order of Bahá'u'lláh"
     'uhj/PWP': "Promise of World Peace", // "The Promise of World Peace"
-    
+
     // 'bic/COL': "Century of Light",
     // 'bic/OCF': "One Common Faith",
     'bic/PRH': "Prosperity of Humankind",
     'bic/SB': "Bahá'u'lláh (statement)",
-    
+
     'c/BP': "Bahá'í Prayers", // "Bahá'í Prayers: A selection of prayers revealed by Bahá'u'lláh, the Báb, and ‘Abdu’l-Baha.",
     'c/BE': "Bahá'í Education", // "Compilation on Bahá'í Education",
     'c/CP': "Peace (compilation)", // "Compilation on Peace"
@@ -59,11 +59,11 @@ var WritingsMap = {
     'c/CW': "Women (compilation)", // "Compilation on Women"
     'c/HC': "Huqúqu'lláh—The Right of God", // "Huqúqu’lláh—The Right of God"
     // 'c/JWTA': "Japan Will Turn Ablaze!",
-    
+
     'je/BNE': "Bahá'u'lláh and the New Era",
     'bwc/BK': "Bahíyyih Khánum (compilation)",
-    'nz/DB': "Dawn-Breakers", // "The Dawn Breakers"
-    
+    'nz/DB': "Dawn-Breakers" // , // "The Dawn Breakers"
+
 },
 // Indicates missing for Baha'u'llah, the Bab,
 SpecialWritingsMap = {

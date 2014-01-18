@@ -2,39 +2,42 @@
 // @include http://reference.bahai.org/en/t/*
 // ==/UserScript==
 
-/*globals self, WritingsMap, WritingsBehaviorMap, SpecialWritingsMap, baseURLs, siteNames, MissingWritingsMap */
+/*jslint regexp: true*/
+/*globals self, WritingsMap, WritingsBehaviorMap, SpecialWritingsMap, baseURLs, siteNames, MissingWritingsMap, _$ */
 
 self.port.on('ready', function (data) {
+    'use strict';
 
-    function addSpan (text) {
-        var spanBegin = document.createElement('span')
-        spanBegin.style.fontSize = fontSize;
-        spanBegin.textContent = text;
-        pageTitle.appendChild(spanBegin);
-    }
-    
-    var range = document.createRange(),
-        pageTitle = _$('.pageTitle'),
+    var pageTitle = _$('.pageTitle'),
         textNode = pageTitle.firstChild,
-        workInfo = _$('#workinfo'),
+        // range = document.createRange(),
+        // workInfo = _$('#workinfo'),
         fontSize = '9pt',
         newTextNode = textNode.cloneNode(true),
         workPath = window.location.href.replace(/http:\/\/reference\.bahai\.org\/en\/t\/([^\/]*\/[^\/]*)\/.*$/, '$1'),
         work = (WritingsMap[workPath] || newTextNode.textContent).replace(/ /g, '_');
 
+    function addSpan (text) {
+        var spanBegin = document.createElement('span');
+        spanBegin.style.fontSize = fontSize;
+        spanBegin.textContent = text;
+        pageTitle.appendChild(spanBegin);
+    }
+
     if (WritingsBehaviorMap[workPath]) {
         WritingsBehaviorMap[workPath](data, work);
     }
-    
+
     addSpan('\u00a0 \u00a0 (');
     siteNames.forEach(function (siteName, i) {
-        var newNode = document.createElement('a'),
+        var wikiText,
+            newNode = document.createElement('a'),
             space = document.createTextNode(' \u00a0'),
             created = MissingWritingsMap[siteName].indexOf(workPath) === -1;
         newNode.href = baseURLs[i] + encodeURIComponent(SpecialWritingsMap[siteName][workPath] || work) + (created ? '' : '?action=edit');
         newNode.id = 'brl-injected-link';
         newNode.target = '_blank';
-        wikiText = document.createTextNode(siteName),
+        wikiText = document.createTextNode(siteName);
         newNode.appendChild(wikiText);
         newNode.style.fontSize = fontSize;
         newNode.style.color = created ? 'blue' : 'orange';
