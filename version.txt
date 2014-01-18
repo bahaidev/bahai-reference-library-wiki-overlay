@@ -1,0 +1,4 @@
+0.2.0
+
+* Added SAQ for en.bahaitext.org
+* Code clean-up
