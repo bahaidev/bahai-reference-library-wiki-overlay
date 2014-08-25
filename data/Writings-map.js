@@ -65,7 +65,7 @@ var WritingsMap = {
     'nz/DB': "Dawn-Breakers" // , // "The Dawn Breakers"
 
 },
-// Indicates missing for Baha'u'llah, the Bab,
+
 SpecialWritingsMap = {
     Bahai9 : {},
     Bahaikipedia: {'b/GWB': 'Gleanings from the Writings of Bahá’u’lláh', 'ab/ABL': '‘Abdu’l-Bahá in London'},
@@ -80,8 +80,9 @@ SpecialWritingsMap = {
         'nz/DB': 'The Dawn-Breakers'
     }
 },
+
 MissingWritingsMap = {
-    Bahai9: ['bic/SB'],
+    Bahai9: [],
     Bahaikipedia: ['b/PM', 'b/PB', 'b/SVFV',
         'ab/ABL', 'c/BWF', 'ab/MF', 'ab/TAB', 'ab/TN',
         'se/ARO', 'se/CF', 'se/DND', 'se/DG', 'se/HE', 'se/LANZ', 'se/LDG1', 'se/LDG2', 'se/MA', 'se/MC', 'se/MBW', 'se/PDC', 'se/UD',
