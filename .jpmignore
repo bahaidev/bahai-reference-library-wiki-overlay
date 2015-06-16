@@ -1,0 +1,10 @@
+*.xpi
+*.lnk
+
+.git
+.gitignore
+.jpmignore
+
+opera
+safari
+chrome
