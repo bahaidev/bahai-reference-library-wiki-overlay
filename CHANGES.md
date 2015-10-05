@@ -1,3 +1,6 @@
+# 0.3.0
+- Add support for private window browsing
+
 # 0.2.2
 - jpm packaging
 
