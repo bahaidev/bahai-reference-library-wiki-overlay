@@ -1,6 +1,6 @@
 
-var siteNames = ['Bahai9', 'Bahaikipedia', 'Wikipedia', 'Bahaitext'], // Used in SpecialWritingsMap
-    baseURLs = ['http://bahai9.com/wiki/', 'http://bahaikipedia.org/', 'http://en.wikipedia.org/wiki/', 'http://en.bahaitext.org/'],
+var siteNames = ['Bahai9', 'Bahaipedia', 'Wikipedia', 'Bahaiworks'], // Used in SpecialWritingsMap
+    baseURLs = ['https://bahai9.com/wiki/', 'https://bahaipedia.org/', 'https://en.wikipedia.org/wiki/', 'https://bahai.works/'],
     baseURL = baseURLs[0];
 
 function _$ (sel) { 'use strict';

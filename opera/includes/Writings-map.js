@@ -72,7 +72,7 @@ var WritingsMap = {
 // Indicates missing for Baha'u'llah, the Bab,
 SpecialWritingsMap = {
     Bahai9 : {},
-    Bahaikipedia: {'b/GWB': 'Gleanings from the Writings of Bahá’u’lláh', 'ab/ABL': '‘Abdu’l-Bahá in London'},
+    Bahaipedia: {'b/GWB': 'Gleanings from the Writings of Bahá’u’lláh', 'ab/ABL': '‘Abdu’l-Bahá in London'},
     Wikipedia: {'ab/WT': 'Will_and_Testament_of_`Abdu\'l-Bahá',
         'se/BA': 'Bahá\'í_Administration_(book)', 'se/DND': 'Dawn of a New Day (book)',
         'se/LDG1': 'Light of Divine Guidance', 'se/LDG2': 'Light of Divine Guidance',
@@ -80,13 +80,13 @@ SpecialWritingsMap = {
         'bwc/BK': 'Bahíyyih Khánum (book)',
         'nz/DB': 'The Dawn-Breakers'
     },
-    Bahaitext: {'b/GWB': 'Gleanings from the Writings of Bahá’u’lláh', 'ab/ABL': '‘Abdu’l-Bahá in London',
+    Bahaiworks: {'b/GWB': 'Gleanings from the Writings of Bahá’u’lláh', 'ab/ABL': '‘Abdu’l-Bahá in London',
         'nz/DB': 'The Dawn-Breakers'
     }
 },
 MissingWritingsMap = {
     Bahai9: ['bic/SB'],
-    Bahaikipedia: ['b/PM', 'b/PB', 'b/SVFV',
+    Bahaipedia: ['b/PM', 'b/PB', 'b/SVFV',
         'ab/ABL', 'c/BWF', 'ab/MF', 'ab/TAB', 'ab/TN',
         'se/ARO', 'se/CF', 'se/DND', 'se/DG', 'se/HE', 'se/LANZ', 'se/LDG1', 'se/LDG2', 'se/MA', 'se/MC', 'se/MBW', 'se/PDC', 'se/UD',
         'uhj/PWP', 'bic/COL', 'bic/OCF', 'bic/PRH', 'bic/SB', 'c/BP', 'c/BE', 'c/CP', 'c/SCH', 'c/CW', 'c/HC', 'c/JWTA', 'bwc/BK'
@@ -96,7 +96,7 @@ MissingWritingsMap = {
         'se/ARO', 'se/CF', 'se/DND', 'se/DG', 'se/HE', 'se/LANZ', 'se/LDG1', 'se/LDG2', 'se/MA', 'se/MC', 'se/MBW', 'se/UD',
         'bic/COL', 'bic/OCF', 'bic/PRH', 'bic/SB', 'c/BP', 'c/BE', 'c/CP', 'c/SCH', 'c/CW', 'c/HC', 'c/JWTA', 'bwc/BK'
     ],
-    Bahaitext: ['b/PB',
+    Bahaiworks: ['b/PB',
         'ab/ABL', 'c/BWF', 'ab/MF', 'ab/PT', 'ab/MF', 'ab/SAB', 'ab/TAF', 'ab/TAB', 'ab/TDP', 'ab/TN', 'ab/WT',
         'se/ARO', 'se/BA', 'se/CF', 'se/DND', 'se/DG', 'se/GPB', 'se/HE',
             'se/LANZ', 'se/LDG1', 'se/LDG2', 'se/MA', 'se/MC', 'se/MBW', 'se/PDC', 'se/UD', 'se/WOB',
