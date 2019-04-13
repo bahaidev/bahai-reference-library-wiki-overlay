@@ -45,4 +45,6 @@ on all of the wikis when the content is not yet ready.
 1. Add scripts to copy similar files rather than having multiple source files
 1. We might add links for Bahá'u'lláh, 'Abdu'l-Bahá, Shoghi Effendi,
     etc. at the top of their respective pages.
+1. Add `bahai.media`?
+1. If adding Q&A site, perhaps add that.
 1. Update <http://brett-zamir.me/brl-wiki-overlay/> per release.
