@@ -1,4 +1,5 @@
-/* eslint-disable import/unambiguous, strict */
+'use strict';
+
 const siteNames = [
   'Bahai9', 'Bahaipedia', 'Wikipedia', 'Bahaiworks'
 ]; // Used in SpecialWritingsMap
@@ -8,11 +9,9 @@ const baseURLs = [
 ];
 const [baseURL] = baseURLs;
 
-function _$ (sel) {
-  'use strict';
+function $ (sel) {
   return document.querySelector(sel);
 }
-function _$$ (sel) {
-  'use strict';
+function $$ (sel) {
   return document.querySelectorAll(sel);
 }

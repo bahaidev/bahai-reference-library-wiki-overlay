@@ -1,4 +1,4 @@
-/* eslint-disable import/unambiguous, max-len */
+/* eslint-disable max-len */
 const WritingsMap = {
   // 'b/ESW': 'Epistle to the Son of the Wolf',
   'b/GDM': 'Gems of Divine Mysteries', // 'Gems of Divine Mysteries (Javáhiru’l-Asrár)'

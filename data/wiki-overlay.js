@@ -1,15 +1,15 @@
-/* eslint-disable strict, import/unambiguous */
-
 /* globals self, WritingsMap, WritingsBehaviorMap,
-  SpecialWritingsMap, baseURLs, siteNames, MissingWritingsMap, _$ */
+  SpecialWritingsMap, baseURLs, siteNames, MissingWritingsMap, $ */
+
+// Todo: Check: /http:\/\/reference\.bahai\.org\/en\/t\/\w{1,3}\/.+/u,
 
 self.port.on('ready', function (data) {
   'use strict';
 
-  const pageTitle = _$('.pageTitle'),
+  const pageTitle = $('.pageTitle'),
     textNode = pageTitle.firstChild,
     // range = document.createRange(),
-    // workInfo = _$('#workinfo'),
+    // workInfo = $('#workinfo'),
     fontSize = '9pt',
     newTextNode = textNode.cloneNode(true),
     // eslint-disable-next-line unicorn/no-unsafe-regex

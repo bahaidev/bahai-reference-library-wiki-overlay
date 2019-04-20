@@ -1,4 +1,3 @@
-/* eslint-disable import/unambiguous, strict */
 /* globals baseURL */
 
 function addParagraphClickListener (data, work) {
