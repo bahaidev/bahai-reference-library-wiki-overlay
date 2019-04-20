@@ -1,7 +1,5 @@
 {
-  "fullName": "Bahá'í Reference Library Wiki Overlay",
   "name": "bahai-reference-library-wiki-overlay",
-  "main": "lib/background.js",
   "version": "0.4.0",
   "license": "MIT",
   "author": "Brett Zamir",

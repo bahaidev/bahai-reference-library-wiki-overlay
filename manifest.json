@@ -10,6 +10,18 @@
 
   "permissions": ["contextMenus", "*://reference.bahai.org/*"],
 
+  "content_scripts": [
+    {
+      "matches": ["*://reference.bahai.org/en/t/*/*"],
+      "js": [
+          "data/utils.js",
+          "data/Writings-map.js",
+          "data/Writings-behavior-map.js",
+          "data/wiki-overlay.js"
+      ]
+    }
+  ],
+
   "background": {
     "scripts": ["/polyfills/browser-polyfill.js", "/lib/background.js"]
   },
