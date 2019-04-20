@@ -1,11 +1,18 @@
+/* eslint-disable import/unambiguous, strict */
+const siteNames = [
+  'Bahai9', 'Bahaipedia', 'Wikipedia', 'Bahaiworks'
+]; // Used in SpecialWritingsMap
+const baseURLs = [
+  'https://bahai9.com/wiki/', 'https://bahaipedia.org/',
+  'https://en.wikipedia.org/wiki/', 'https://bahai.works/'
+];
+const [baseURL] = baseURLs;
 
-var siteNames = ['Bahai9', 'Bahaipedia', 'Wikipedia', 'Bahaiworks'], // Used in SpecialWritingsMap
-    baseURLs = ['https://bahai9.com/wiki/', 'https://bahaipedia.org/', 'https://en.wikipedia.org/wiki/', 'https://bahai.works/'],
-    baseURL = baseURLs[0];
-
-function _$ (sel) { 'use strict';
-    return document.querySelector(sel);
+function _$ (sel) {
+  'use strict';
+  return document.querySelector(sel);
 }
-function _$$ (sel) { 'use strict';
-    return document.querySelectorAll(sel);
+function _$$ (sel) {
+  'use strict';
+  return document.querySelectorAll(sel);
 }

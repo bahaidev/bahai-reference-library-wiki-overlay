@@ -1,27 +1,44 @@
 {
-    "fullName": "Bahá'í Reference Library Wiki Overlay",
-    "id": "jid0-ySOiEX15dyVpuWRhvsrdHdR04w0@jetpack",
-    "name": "bahai-reference-library-wiki-overlay",
-    "main": "lib/main",
-    "version": "0.3.0",
-    "license": "MIT",
-    "author": "Brett Zamir",
-    "contributors": [],
-    "bugs": "https://github.com/brettz9/bahai-reference-library-wiki-overlay/issues",
-    "homepage": "http://brett-zamir.me/brl-wiki-overlay/",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/brettz9/bahai-reference-library-wiki-overlay"
-    },
-    "keywords": [
-        "bahai",
-        "wiki",
-        "overlay"
-    ],
-    "permissions": {
-        "private-browsing": true
-    },
-    "description": "Overlays the official Bahá'í Reference Library site (http://reference.bahai.org) with links back to collaboratively editable wiki pages (at https://bahai9.com, https://bahaipedia.org, https://wikipedia.org, and https://bahai.works) allowing compilation of quotations and resources pertaining to any given work. Next to the heading title of each work are links which, when clicked, will visit the wiki page dedicated to collecting resources for the given book (authoritative quotations and resources, Bahá'í encyclopedic, public encyclopedic, or source text, respectively). \n\nWhere available, even individual paragraphs can be clicked to visit a wiki page dedicated to that specific paragraph (at present, this functionality is only available for the Kitab-i-Aqdas and links only lead to https://bahai9.com which provides links to topical compilation pages or provides other background on the verse in question).\n\nCurrently works for English only.\n\nThis add-on is an individual initiative, not sponsored by any Bahá'í administrative institution.",
-    "dependencies": {},
-    "engines": {}
+  "fullName": "Bahá'í Reference Library Wiki Overlay",
+  "name": "bahai-reference-library-wiki-overlay",
+  "main": "lib/background.js",
+  "version": "0.4.0",
+  "license": "MIT",
+  "author": "Brett Zamir",
+  "contributors": [],
+  "bugs": "https://github.com/brettz9/bahai-reference-library-wiki-overlay/issues",
+  "homepage": "http://brett-zamir.me/brl-wiki-overlay/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brettz9/bahai-reference-library-wiki-overlay"
+  },
+  "scripts": {
+    "eslint": "eslint .",
+    "copy": "cp node_modules/webextension-polyfill/dist/browser-polyfill.js polyfills/browser-polyfill.js"
+  },
+  "keywords": [
+    "bahai",
+    "wiki",
+    "overlay"
+  ],
+  "description": "Overlays the official Bahá'í Reference Library site (http://reference.bahai.org) with links back to collaboratively editable wiki pages (at https://bahai9.com, https://bahaipedia.org, https://wikipedia.org, and https://bahai.works) allowing compilation of quotations and resources pertaining to any given work. Next to the heading title of each work are links which, when clicked, will visit the wiki page dedicated to collecting resources for the given book (authoritative quotations and resources, Bahá'í encyclopedic, public encyclopedic, or source text, respectively). \n\nWhere available, even individual paragraphs can be clicked to visit a wiki page dedicated to that specific paragraph (at present, this functionality is only available for the Kitab-i-Aqdas and links only lead to https://bahai9.com which provides links to topical compilation pages or provides other background on the verse in question).\n\nCurrently works for English only.\n\nThis add-on is an individual initiative, not sponsored by any Bahá'í administrative institution.",
+  "dependencies": {},
+  "engines": {},
+  "devDependencies": {
+    "@mysticatea/eslint-plugin": "^9.0.1",
+    "eslint": "^5.16.0",
+    "eslint-config-ash-nazg": "^2.0.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-compat": "^3.1.1",
+    "eslint-plugin-eslint-comments": "^3.1.1",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsdoc": "^4.8.3",
+    "eslint-plugin-markdown": "^1.0.0",
+    "eslint-plugin-no-use-extend-native": "^0.4.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-unicorn": "^8.0.2",
+    "webextension-polyfill": "^0.4.0"
+  }
 }
