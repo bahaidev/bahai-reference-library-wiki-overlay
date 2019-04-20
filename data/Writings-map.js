@@ -1,4 +1,6 @@
 /* eslint-disable max-len */
+
+'use strict';
 const WritingsMap = { // eslint-disable-line no-unused-vars
   // 'b/ESW': 'Epistle to the Son of the Wolf',
   'b/GDM': 'Gems of Divine Mysteries', // 'Gems of Divine Mysteries (Javáhiru’l-Asrár)'

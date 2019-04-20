@@ -1,5 +1,5 @@
+'use strict';
 function addParagraphClickListener (work, baseURL) {
-  'use strict';
   let url;
   const baseURLPar = baseURL + work + '/par',
     params = ''; // '?useskin=chick'; // Reenable if we use internal dialog and we can propagate this useskin parameter: see https://stackoverflow.com/questions/14698059/persist-mediawiki-skin-by-url-parameter/14712967
