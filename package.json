@@ -11,6 +11,13 @@
     "url": "https://github.com/brettz9/bahai-reference-library-wiki-overlay"
   },
   "scripts": {
+    "webext-path": "npm run eslint && web-ext run --browser-console -f /Applications/Firefox.app",
+    "webext": "npm run eslint && web-ext run --browser-console -f firefox",
+    "webext-default": "npm run eslint && web-ext run --browser-console",
+    "webext-beta": "npm run eslint && web-ext run --browser-console -f beta",
+    "webext-nightly": "npm run eslint && web-ext run --browser-console -f nightly",
+    "webext-dev": "npm run eslint && web-ext run --browser-console -f firefoxdeveloperedition",
+    "webext-build": "npm run eslint && web-ext build",
     "eslint": "eslint .",
     "copy": "cp node_modules/webextension-polyfill/dist/browser-polyfill.js polyfills/browser-polyfill.js"
   },
