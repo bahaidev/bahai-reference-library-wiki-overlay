@@ -21,7 +21,7 @@ self.port.on('ready', function (data) {
     }
 
     if (WritingsBehaviorMap[workPath]) {
-        WritingsBehaviorMap[workPath](data, work);
+        WritingsBehaviorMap[workPath](data, work); // lgtm [js/unvalidated-dynamic-method-call]
     }
 
     addSpan('\u00a0 \u00a0 (');
