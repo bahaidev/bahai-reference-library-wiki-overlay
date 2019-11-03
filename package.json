@@ -1,5 +1,5 @@
 {
-    "fullName": "Bah\u00e1'\u00ed Reference Library Wiki Overlay",
+    "fullName": "Bahá'í Reference Library Wiki Overlay",
     "id": "jid0-ySOiEX15dyVpuWRhvsrdHdR04w0@jetpack",
     "name": "bahai-reference-library-wiki-overlay",
     "main": "lib/main",
@@ -10,12 +10,18 @@
     "bugs": "https://github.com/brettz9/bahai-reference-library-wiki-overlay/issues",
     "homepage": "http://brett-zamir.me/brl-wiki-overlay/",
     "repository": {
-      "type": "git",
-      "url": "https://github.com/brettz9/bahai-reference-library-wiki-overlay"
+        "type": "git",
+        "url": "https://github.com/brettz9/bahai-reference-library-wiki-overlay"
     },
-    "keywords": ["bahai", "wiki", "overlay"],
-    "permissions": {"private-browsing": true},
-    "description": "Overlays the official Bah\u00e1'\u00ed Reference Library site (http://reference.bahai.org) with links back to collaboratively editable wiki pages (at https://bahai9.com, https://bahaipedia.org, https://wikipedia.org, and https://bahai.works) allowing compilation of quotations and resources pertaining to any given work. Next to the heading title of each work are links which, when clicked, will visit the wiki page dedicated to collecting resources for the given book (authoritative quotations and resources, Bah\u00e1'\u00ed encyclopedic, public encyclopedic, or source text, respectively). \n\nWhere available, even individual paragraphs can be clicked to visit a wiki page dedicated to that specific paragraph (at present, this functionality is only available for the Kitab-i-Aqdas and links only lead to https://bahai9.com which provides links to topical compilation pages or provides other background on the verse in question).\n\nCurrently works for English only.\n\nThis add-on is an individual initiative, not sponsored by any Bah\u00e1'\u00ed administrative institution.",
+    "keywords": [
+        "bahai",
+        "wiki",
+        "overlay"
+    ],
+    "permissions": {
+        "private-browsing": true
+    },
+    "description": "Overlays the official Bahá'í Reference Library site (http://reference.bahai.org) with links back to collaboratively editable wiki pages (at https://bahai9.com, https://bahaipedia.org, https://wikipedia.org, and https://bahai.works) allowing compilation of quotations and resources pertaining to any given work. Next to the heading title of each work are links which, when clicked, will visit the wiki page dedicated to collecting resources for the given book (authoritative quotations and resources, Bahá'í encyclopedic, public encyclopedic, or source text, respectively). \n\nWhere available, even individual paragraphs can be clicked to visit a wiki page dedicated to that specific paragraph (at present, this functionality is only available for the Kitab-i-Aqdas and links only lead to https://bahai9.com which provides links to topical compilation pages or provides other background on the verse in question).\n\nCurrently works for English only.\n\nThis add-on is an individual initiative, not sponsored by any Bahá'í administrative institution.",
     "dependencies": {},
     "engines": {}
 }
