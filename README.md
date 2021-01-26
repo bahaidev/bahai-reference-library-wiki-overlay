@@ -1,5 +1,9 @@
 # Bahá'í Reference Library Overlay
 
+**This appears not to be working for current versions of the supported**
+**browsers. A branch has been started to support as a "webextension" which**
+**but is not complete.**
+
 Firefox add-on to overlay the official Bahá'í Reference Library site
 (<http://reference.bahai.org>) with links back to collaboratively editable
 wiki pages (at <https://bahai9.com>, <https://bahaipedia.org>,
@@ -21,10 +25,17 @@ is only available for the Kitáb-i-Aqdas and links only lead to
 or provides other background on the verse in question).
 
 Currently works for English only. Other browser add-on packages can
-be found at <http://brett-zamir.me/brl-wiki-overlay/>.
+be found at <http://brett-zamir.me/brl-wiki-overlay/>, e.g.:
+
+- [Firefox](https://addons.mozilla.org/en-US/firefox/addon/bahai-reference-library-wik/)
+- [Chrome](https://chrome.google.com/webstore/detail/bahai-reference-library-w/bkcdagjannmhhlapolphnjojbfgckgjc/related?hl=en)
+- [Safari](http://brett-zamir.me/brl-wiki-overlay/brl-wiki-overlay.safariextz)
+- [Opera](https://addons.opera.com/en/extensions/details/bahai-reference-library-wiki-overlay/?display=en)
 
 This add-on is an individual initiative, not sponsored by any Bahá'í
 administrative institution.
+
+Information is also available at <https://bahai-library.com/zamir_brl_wiki_overlay>.
 
 # Rationale for manual tracking of pages
 
