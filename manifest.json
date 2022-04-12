@@ -12,7 +12,7 @@
 
   "content_scripts": [
     {
-      "matches": ["*://reference.bahai.org/en/t/*/*"],
+      "matches": ["*://bahai.org/library/*"],
       "run_at": "document_end",
       "js": [
           "data/utils.js",
@@ -24,7 +24,7 @@
   ],
 
   "background": {
-    "scripts": ["/polyfills/browser-polyfill.js", "/lib/background.js"]
+    "service_worker": "/lib/background.js"
   },
 
   "icons": {
