@@ -1,7 +1,7 @@
-/* eslint-disable max-len */
+/* eslint-disable max-len -- Easier to track items */
 
 'use strict';
-const WritingsMap = { // eslint-disable-line no-unused-vars
+const WritingsMap = {
   // 'b/ESW': 'Epistle to the Son of the Wolf',
   'b/GDM': 'Gems of Divine Mysteries', // 'Gems of Divine Mysteries (Javáhiru’l-Asrár)'
   'b/GWB': 'Gleanings from the Writings of Bahá\'u\'lláh', // 'Gleanings From the Writings of Bahá'u'lláh'
@@ -68,7 +68,7 @@ const WritingsMap = { // eslint-disable-line no-unused-vars
 
 };
 
-const SpecialWritingsMap = { // eslint-disable-line no-unused-vars
+const SpecialWritingsMap = {
   Bahai9: {},
   Bahaipedia: {'b/GWB': 'Gleanings from the Writings of Bahá’u’lláh', 'ab/ABL': '‘Abdu’l-Bahá in London'},
   Wikipedia: {'ab/WT': 'Will_and_Testament_of_`Abdu\'l-Bahá',
@@ -83,7 +83,7 @@ const SpecialWritingsMap = { // eslint-disable-line no-unused-vars
   }
 };
 
-const MissingWritingsMap = { // eslint-disable-line no-unused-vars
+const MissingWritingsMap = {
   Bahai9: [],
   Bahaipedia: [
     'b/PM', 'b/PB', 'b/SVFV',

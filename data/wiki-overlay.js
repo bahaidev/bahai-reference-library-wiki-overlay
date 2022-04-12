@@ -1,9 +1,4 @@
-/* globals $,
-  WritingsMap, WritingsBehaviorMap,
-  SpecialWritingsMap, MissingWritingsMap
-*/
-
-'use strict';
+import {$} from './utils.js';
 
 // CONFIG
 const siteNames = [
@@ -24,11 +19,16 @@ const pageTitle = $('.pageTitle'),
   newTextNode = textNode.cloneNode(true),
   // Todo: Check: /http:\/\/reference\.bahai\.org\/en\/t\/\w{1,3}\/.+/u,
   workPath = location.href.replace(
-    // eslint-disable-next-line unicorn/no-unsafe-regex
-    /http:\/\/reference\.bahai\.org\/en\/t\/([^/]*\/[^/]*)\/.*$/u, '$1'
+
+    /http:\/\/reference\.bahai\.org\/en\/t\/(?<work>[^/]*\/[^/]*)\/.*$/u, '$<work>'
   ),
   work = (WritingsMap[workPath] || newTextNode.textContent).replace(/ /gu, '_');
 
+/**
+ *
+ * @param {string} text
+ * @returns {void}
+ */
 function addSpan (text) {
   const spanBegin = document.createElement('span');
   spanBegin.style.fontSize = fontSize;
@@ -37,6 +37,7 @@ function addSpan (text) {
 }
 
 if (WritingsBehaviorMap[workPath]) {
+  // eslint-disable-next-line max-len -- Too long
   WritingsBehaviorMap[workPath](work, baseURL); // lgtm [js/unvalidated-dynamic-method-call]
 }
 

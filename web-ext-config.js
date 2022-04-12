@@ -1,5 +1,7 @@
-/* eslint-env node */
+/* globals module -- Not yet using overrides */
+
 'use strict';
+
 module.exports = {
   verbose: true,
   ignoreFiles: [

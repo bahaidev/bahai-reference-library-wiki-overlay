@@ -1,4 +1,10 @@
 'use strict';
+/**
+ *
+ * @param {string} work
+ * @param {string} baseURL
+ * @returns {void}
+ */
 function addParagraphClickListener (work, baseURL) {
   let url;
   const baseURLPar = baseURL + work + '/par',
@@ -27,7 +33,7 @@ function addParagraphClickListener (work, baseURL) {
   });
 }
 
-const WritingsBehaviorMap = { // eslint-disable-line no-unused-vars
+const WritingsBehaviorMap = {
   'b/KA': addParagraphClickListener,
   'b/KI': addParagraphClickListener
 };
