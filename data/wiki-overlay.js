@@ -47,7 +47,7 @@ addSpan(`${nbsp} ${nbsp} (`);
 
 siteNames.forEach(function (siteName, i) {
   const newNode = document.createElement('a'),
-    space = document.createTextNode(' \u00A0'),
+    space = ' \u00A0',
     created = !MissingWritingsMap[siteName].includes(workPath);
 
   newNode.href = baseURLs[i] + encodeURIComponent(
