@@ -1,5 +1,3 @@
-/* globals module -- Not yet using overrides */
-
 'use strict';
 
 module.exports = {
@@ -10,14 +8,8 @@ module.exports = {
     // 2. Any hidden file (one that starts with a dot) is ignored
     // 3. Any directory named node_modules is ignored
     'package.json',
-    'copy-polyfill.js',
     '*.md',
-    'ignore/**',
-    'web-ext-artifacts/**',
-
-    'opera',
-    'safari',
-    'chrome'
-
+    '.idea/**',
+    'web-ext-artifacts/**'
   ]
 };
