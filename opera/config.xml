@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" id="http://brett-zamir.me/brl-wiki-overlay" version="1.2">
-    <name>Baha'i Reference Library Wiki Overlay</name>
-    <description>Overlays Baha'i Reference Library site with links to editable wikis.</description>
-    <author href="http://brett-zamir.me/brl-wiki-overlay/" email="brettz9@yahoo.com">Brett Zamir</author>
-    <icon src="icons/brl-wiki-overlay.png"/>
-    <access origin="https://bahai.org" subdomains="true" />
-    <update-description href="http://brett-zamir.me/brl-wiki-overlay/opera-update.php"/>
-</widget>

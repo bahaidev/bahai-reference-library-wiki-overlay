@@ -5,6 +5,7 @@ const siteNames = [
   'Bahai9', 'Bahaipedia', 'Wikipedia', 'Bahaiworks'
 ]; // Used in `SpecialWritingsMap`
 
+// Add bahai.media? bahai-library.com/tags ? bahai-browser.org/indexes/ ?
 const baseURLs = [
   'https://bahai9.com/wiki/', 'https://bahaipedia.org/',
   'https://en.wikipedia.org/wiki/', 'https://bahai.works/'
