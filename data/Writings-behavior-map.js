@@ -1,4 +1,3 @@
-'use strict';
 /**
  *
  * @param {string} work
@@ -37,3 +36,5 @@ const WritingsBehaviorMap = {
   'b/KA': addParagraphClickListener,
   'b/KI': addParagraphClickListener
 };
+
+export default WritingsBehaviorMap;

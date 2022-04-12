@@ -15,12 +15,15 @@
       "matches": ["*://bahai.org/library/*"],
       "run_at": "document_end",
       "js": [
-          "data/utils.js",
-          "data/Writings-map.js",
-          "data/Writings-behavior-map.js",
           "data/wiki-overlay.js"
       ]
     }
+  ],
+
+  "web_accessible_resources": [
+    "data/utils.js",
+    "data/Writings-map.js",
+    "data/Writings-behavior-map.js"
   ],
 
   "background": {

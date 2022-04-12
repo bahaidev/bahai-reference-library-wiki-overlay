@@ -1,4 +1,19 @@
-import {$} from './utils.js';
+const utilsSource = chrome.runtime.getURL('./utils.js');
+const writingsMapSource = chrome.runtime.getURL('./Writings-map.js');
+const writingsBehaviorMapSource = chrome.runtime.getURL('./utils.js');
+
+const [
+  {$},
+  {WritingsMap, SpecialWritingsMap, MissingWritingsMap},
+  WritingsBehaviorMap
+] = await Promise.all([
+  utilsSource,
+  writingsMapSource,
+  writingsBehaviorMapSource
+].map((source) => {
+  // eslint-disable-next-line no-unsanitized/method -- Own files
+  return import(source);
+}));
 
 // CONFIG
 const siteNames = [
@@ -45,7 +60,7 @@ if (WritingsBehaviorMap[workPath]) {
 const nbsp = '\u00A0';
 addSpan(`${nbsp} ${nbsp} (`);
 
-siteNames.forEach(function (siteName, i) {
+siteNames.forEach((siteName, i) => {
   const newNode = document.createElement('a'),
     space = ' \u00A0',
     created = !MissingWritingsMap[siteName].includes(workPath);

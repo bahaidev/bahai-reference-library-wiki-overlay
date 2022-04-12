@@ -1,6 +1,5 @@
 /* eslint-disable max-len -- Easier to track items */
 
-'use strict';
 const WritingsMap = {
   // 'b/ESW': 'Epistle to the Son of the Wolf',
   'b/GDM': 'Gems of Divine Mysteries', // 'Gems of Divine Mysteries (Javáhiru’l-Asrár)'
@@ -105,3 +104,5 @@ const MissingWritingsMap = {
     'uhj/PWP', 'bic/COL', 'bic/OCF', 'bic/PRH', 'bic/SB', 'c/BP', 'c/BE', 'c/CP', 'c/SCH', 'c/CW', 'c/HC', 'c/JWTA', 'je/BNE', 'bwc/BK'
   ]
 };
+
+export {WritingsMap, SpecialWritingsMap, MissingWritingsMap};
