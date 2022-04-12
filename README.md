@@ -1,8 +1,8 @@
 # Bahá'í Reference Library Overlay
 
 **This appears not to be working for current versions of the supported**
-**browsers. A branch has been started to support as a "webextension" which**
-**but is not complete.**
+**browsers. A branch has been started to support as a "webextension"**
+**but it is not yet complete.**
 
 Firefox add-on to overlay the official Bahá'í Reference Library site
 (<http://reference.bahai.org>) with links back to collaboratively editable
