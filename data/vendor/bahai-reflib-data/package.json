@@ -1,0 +1,68 @@
+{
+  "name": "bahai-reflib-data",
+  "version": "0.9.2",
+  "author": "Brett Zamir <brettz9@yahoo.com>",
+  "contributors": [],
+  "description": "Host information on the official Bahá'í Reference Library",
+  "license": "MIT",
+  "keywords": [],
+  "type": "module",
+  "main": "./src/index-node.js",
+  "exports": {
+    "import": "./src/index-node.js",
+    "browser": "./src/index-browser.js",
+    "default": "./src/index.js"
+  },
+  "browserslist": [
+    "cover 100%"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahaidev/bahai-reflib-data.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bahaidev/bahai-reflib-data/issues"
+  },
+  "homepage": "https://github.com/bahaidev/bahai-reflib-data",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "dependencies": {
+    "file-fetch": "^1.7.0"
+  },
+  "devDependencies": {
+    "@brettz9/eslint-plugin": "^1.0.4",
+    "@brettz9/node-static": "^0.1.1",
+    "c8": "^7.11.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.12.0",
+    "eslint-config-ash-nazg": "32.13.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-array-func": "^3.1.7",
+    "eslint-plugin-compat": "^4.0.2",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsdoc": "^39.0.0",
+    "eslint-plugin-markdown": "^2.2.1",
+    "eslint-plugin-no-unsanitized": "^4.0.1",
+    "eslint-plugin-no-use-extend-native": "^0.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-sonarjs": "^0.13.0",
+    "eslint-plugin-unicorn": "^42.0.0",
+    "jsdom": "^19.0.0",
+    "mocha": "^9.2.2",
+    "node-fetch": "^3.2.3",
+    "promise-throttle": "^1.1.2"
+  },
+  "scripts": {
+    "start": "static -p 8008",
+    "build-data": "node tools/index.js",
+    "eslint": "eslint --ext=js,cjs,mjs,md,html .",
+    "lint": "npm run eslint --",
+    "mocha": "mocha --require chai/register-expect.js --delay",
+    "test": "c8 npm run mocha"
+  },
+  "readme": "# bahai-reflib-data\n\nThis project aims to host information on the official\n[Bahá'í Reference Library](https://bahai.org/library)\nwebsite, in particular its unique identifiers, and host scripts for obtaining\nand processing those IDs, such as to map them to paragraph number.\n\nNote that although this uses data from the Bahá'í Reference Library, this is\njust an individual effort not related to the site.\n\nPer <https://bahai-library.com/uhj_additional_tablets_urls>, it seems that the\nURLS hosted on <https://bahai.org/library> may now be permanent, and it is\nhoped that since the paragraphs are not transparent, that the IDs might be\npermanent as well.\n\nOne bit of info: typing <https://bahai.org/r/[ID]> and replacing `[ID]` with\nthe unique ID will redirect to the URL and potentially anchor that it\ntargets.\n\nA **server** is available via\n[bahai-reflib-data-server](https://github.com/brettz9/bahai-reflib-data-server).\n\n## Development\n\n1. `npm i -g pnpm` (If you don't have it installed already)\n1. `pnpm i` (Install dependencies)\n1. `pnpm build-data` followed by any of these optional arguments (though\n    choosing at least one):\n    `mainCollections`, `collections`, `works`, `sections`, `paragraphIdInfo` to\n    run the (throttled) downloading and saving of the information\n\n## To-dos\n\n1. Utilize in restoration of **webextensions**-based Bahá'í Reference Library\n    Wiki Overlay add-on\n\n## Possible to-dos\n\n1. Waiting: Once ready, add the **Arabic** or any other languages added later\n    (The Arabic has not been ported to the new site.) Should just need to\n    populate the `allLanguages` array. (We could scrape \"Other languages\"\n    from <https://www.bahai.org/library/> but no telling if that structure\n    will stay the same.)\n1. **RSS feed for new additions** to the library (based on a date-detected\n    field)\n"
+}

@@ -21,7 +21,7 @@
     "webext-build": "npm run eslint && web-ext build",
     "eslint": "eslint --ext=vue,js,cjs,mjs,md,html .",
     "lint": "npm run eslint --",
-    "copy": "cp node_modules/webextension-polyfill/dist/browser-polyfill.js polyfills/browser-polyfill.js && cp node_modules/jamilih/dist/jml-es-noinnerh.js data/vendor/jamilih/jml-es-noinnerh.js"
+    "copy": "cp node_modules/webextension-polyfill/dist/browser-polyfill.js polyfills/browser-polyfill.js && cp node_modules/jamilih/dist/jml-es-noinnerh.js data/vendor/jamilih/jml-es-noinnerh.js && cp -r node_modules/bahai-reflib-data data/vendor && rm data/vendor/bahai-reflib-data/src/index-node.js"
   },
   "keywords": [
     "bahai",
@@ -36,6 +36,7 @@
   },
   "devDependencies": {
     "@brettz9/eslint-plugin": "^1.0.4",
+    "bahai-reflib-data": "^0.9.2",
     "eslint": "^8.13.0",
     "eslint-config-ash-nazg": "33.0.0",
     "eslint-config-standard": "^17.0.0",
