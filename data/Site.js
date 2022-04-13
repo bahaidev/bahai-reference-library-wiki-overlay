@@ -1,6 +1,12 @@
 /* eslint-disable max-len -- Easier to track items */
 
-const WritingsMap = {
+const mainCollectionPattern = /^\/library\/[^/]+\/[^/]+\/$/u;
+
+const $ = (sel) => {
+  return document.querySelector(sel);
+};
+
+const writingsMap = {
   // 'b/ESW': 'Epistle to the Son of the Wolf',
   'b/GDM': 'Gems of Divine Mysteries', // 'Gems of Divine Mysteries (Javáhiru’l-Asrár)'
   'b/GWB': 'Gleanings from the Writings of Bahá\'u\'lláh', // 'Gleanings From the Writings of Bahá'u'lláh'
@@ -67,42 +73,130 @@ const WritingsMap = {
 
 };
 
-const SpecialWritingsMap = {
-  Bahai9: {},
-  Bahaipedia: {'b/GWB': 'Gleanings from the Writings of Bahá’u’lláh', 'ab/ABL': '‘Abdu’l-Bahá in London'},
-  Wikipedia: {'ab/WT': 'Will_and_Testament_of_`Abdu\'l-Bahá',
-    'se/BA': 'Bahá\'í_Administration_(book)', 'se/DND': 'Dawn of a New Day (book)',
-    'se/LDG1': 'Light of Divine Guidance', 'se/LDG2': 'Light of Divine Guidance',
-    'uhj/PWP': 'The Promise of World Peace',
-    'bwc/BK': 'Bahíyyih Khánum (book)',
-    'nz/DB': 'The Dawn-Breakers'
-  },
-  Bahaiworks: {'b/GWB': 'Gleanings from the Writings of Bahá’u’lláh', 'ab/ABL': '‘Abdu’l-Bahá in London',
-    'nz/DB': 'The Dawn-Breakers'
+/**
+ * Represents a website.
+ */
+class Site {
+  /**
+   * @returns {string}
+   */
+  #getRedirect () {
+    const workPath = Site.#getWorkPath();
+    return this.redirects[workPath] || workPath;
   }
-};
 
-const MissingWritingsMap = {
-  Bahai9: [],
-  Bahaipedia: [
-    'b/PM', 'b/PB', 'b/SVFV',
-    'ab/ABL', 'c/BWF', 'ab/MF', 'ab/TAB', 'ab/TN',
-    'se/ARO', 'se/CF', 'se/DND', 'se/DG', 'se/HE', 'se/LANZ', 'se/LDG1', 'se/LDG2', 'se/MA', 'se/MC', 'se/MBW', 'se/PDC', 'se/UD',
-    'uhj/PWP', 'bic/COL', 'bic/OCF', 'bic/PRH', 'bic/SB', 'c/BP', 'c/BE', 'c/CP', 'c/SCH', 'c/CW', 'c/HC', 'c/JWTA', 'bwc/BK'
-  ],
-  Wikipedia: [
-    'b/PM', 'b/PB', 'b/SVFV',
-    'ab/ABL', 'ab/MF', 'ab/PUP', 'ab/SAB', 'ab/TAF', 'ab/TAB', 'ab/TN',
-    'se/ARO', 'se/CF', 'se/DND', 'se/DG', 'se/HE', 'se/LANZ', 'se/LDG1', 'se/LDG2', 'se/MA', 'se/MC', 'se/MBW', 'se/UD',
-    'bic/COL', 'bic/OCF', 'bic/PRH', 'bic/SB', 'c/BP', 'c/BE', 'c/CP', 'c/SCH', 'c/CW', 'c/HC', 'c/JWTA', 'bwc/BK'
-  ],
-  Bahaiworks: [
-    'b/PB',
-    'ab/ABL', 'c/BWF', 'ab/MF', 'ab/PT', 'ab/MF', 'ab/SAB', 'ab/TAF', 'ab/TAB', 'ab/TDP', 'ab/TN', 'ab/WT',
-    'se/ARO', 'se/BA', 'se/CF', 'se/DND', 'se/DG', 'se/GPB', 'se/HE',
-    'se/LANZ', 'se/LDG1', 'se/LDG2', 'se/MA', 'se/MC', 'se/MBW', 'se/PDC', 'se/UD', 'se/WOB',
-    'uhj/PWP', 'bic/COL', 'bic/OCF', 'bic/PRH', 'bic/SB', 'c/BP', 'c/BE', 'c/CP', 'c/SCH', 'c/CW', 'c/HC', 'c/JWTA', 'je/BNE', 'bwc/BK'
-  ]
-};
+  /**
+   * @returns {string}
+   */
+  static #getWorkPath () {
+    return location.href.replace(
+      /https:\/\/(?:www\.)?bahai\.org\/library\/(?<work>[^/]*\/[^/]*)\/.*$/u,
+      '$<work>'
+    );
+  }
 
-export {WritingsMap, SpecialWritingsMap, MissingWritingsMap};
+  /**
+   * @returns {string}
+   */
+  static #getHeading () {
+    return $('h1.publication-page-title').textContent;
+  }
+
+  /**
+   * @returns {string}
+   */
+  static #getWork () {
+    const workPath = Site.#getWorkPath();
+    return (workPath || Site.#getHeading()).replace(/ /gu, '_');
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  static #isMainCollection () {
+    return mainCollectionPattern.test(location.pathname);
+  }
+
+  /**
+   * @returns {string}
+   */
+  static getCurrentTitleHolder () {
+    const isMainCollection = Site.#isMainCollection();
+    return isMainCollection
+      ? $('.body-content h1.tabtitle')
+      // Todo: For secondary collections and individual pages
+      : $();
+  }
+
+  static {
+    this.currentTitle = Site.getCurrentTitleHolder().textContent;
+  }
+
+  /**
+   * @returns {string}
+   */
+  #getCurrentWorkURL () {
+    const created = !this.isMissingCurrentWork();
+    return this.baseURL + encodeURI(
+      this.#getRedirect() || Site.#getWork()
+    ) + (created ? '' : '?action=edit');
+  }
+
+  /**
+   * @returns {string}
+   */
+  #getCurrentPageURL () {
+    return this.baseURL + encodeURI(Site.currentTitle);
+  }
+
+  /**
+   * @param {object} cfg
+   * @param {string} cfg.name
+   * @param {string} cfg.baseURL
+   * @param {string[]} [cfg.missing=[]]
+   * @param {Object<string, string>} [cfg.redirects] This should not normally
+   *   be used as wikis under our control at least should have redirects.
+   * @param {string[]} [cfg.perParagraphSupport=[]] Works for which
+   * per-paragraph wiki pages are available.
+   */
+  constructor ({
+    name, baseURL,
+    missing, redirects = [], perParagraphSupport = []
+  }) {
+    this.name = name;
+    this.baseURL = baseURL;
+    this.missing = missing || [];
+    this.redirects = redirects;
+    this.perParagraphSupport = perParagraphSupport;
+  }
+
+  /**
+   * @returns {string}
+   */
+  isMissingCurrentWork () {
+    const work = Site.#getWork();
+    return this.missing.map((missingItem) => {
+      return writingsMap[missingItem];
+    }).includes(work);
+  }
+
+  /**
+   * @returns {string}
+   */
+  getCurrentURL () {
+    const isMainCollection = Site.#isMainCollection();
+    return isMainCollection
+      ? this.#getCurrentPageURL()
+      : this.#getCurrentWorkURL();
+  }
+
+  /**
+   * @returns {boolean}
+   */
+  currentWorkHasPerParagraphSupport () {
+    const work = Site.#getWorkPath();
+    return this.perParagraphSupport.includes(work);
+  }
+}
+
+export {Site};

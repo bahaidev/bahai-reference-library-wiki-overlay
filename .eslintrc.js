@@ -2,7 +2,9 @@
 
 module.exports = {
   env: {
-    webextensions: true
+    webextensions: true,
+    browser: true,
+    'shared-node-browser': false
   },
   settings: {
     polyfills: [

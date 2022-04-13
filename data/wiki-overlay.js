@@ -1,90 +1,131 @@
-const utilsSource = chrome.runtime.getURL('./utils.js');
-const writingsMapSource = chrome.runtime.getURL('./Writings-map.js');
-const writingsBehaviorMapSource = chrome.runtime.getURL('./utils.js');
+const jamilihSource = chrome.runtime.getURL(
+  '/data/vendor/jamilih/jml-es-noinnerh.js'
+);
+const writingsMapSource = chrome.runtime.getURL('./data/Site.js');
+// const addParagraphClickListenerSource =
+//    chrome.runtime.getURL('./addParagraphClickListener.js');
 
+(async () => {
 const [
-  {$},
-  {WritingsMap, SpecialWritingsMap, MissingWritingsMap},
-  WritingsBehaviorMap
+  {jml, nbsp},
+  {Site}
+  // addParagraphClickListener
 ] = await Promise.all([
-  utilsSource,
-  writingsMapSource,
-  writingsBehaviorMapSource
+  jamilihSource,
+  writingsMapSource
+  // addParagraphClickListenerSource
 ].map((source) => {
   // eslint-disable-next-line no-unsanitized/method -- Own files
   return import(source);
 }));
 
 // CONFIG
-const siteNames = [
-  'Bahai9', 'Bahaipedia', 'Wikipedia', 'Bahaiworks'
-]; // Used in `SpecialWritingsMap`
-
 // Add bahai.media? bahai-library.com/tags ? bahai-browser.org/indexes/ ?
-const baseURLs = [
-  'https://bahai9.com/wiki/', 'https://bahaipedia.org/',
-  'https://en.wikipedia.org/wiki/', 'https://bahai.works/'
+// Allow disabling any in preferences?
+const sites = [
+  new Site({
+    name: 'Bahai9',
+    baseURL: 'https://bahai9.com/wiki/',
+    perParagraphSupport: ['b/KA', 'b/KI']
+  }),
+  new Site({
+    name: 'Bahaipedia',
+    baseURL: 'https://bahaipedia.org/',
+    missing: [
+      'b/PM', 'b/PB', 'b/SVFV',
+      'ab/ABL', 'c/BWF', 'ab/MF', 'ab/TAB', 'ab/TN',
+      'se/ARO', 'se/CF', 'se/DND', 'se/DG', 'se/HE', 'se/LANZ',
+      'se/LDG1', 'se/LDG2', 'se/MA', 'se/MC', 'se/MBW', 'se/PDC', 'se/UD',
+      'uhj/PWP', 'bic/COL', 'bic/OCF', 'bic/PRH', 'bic/SB', 'c/BP',
+      'c/BE', 'c/CP', 'c/SCH', 'c/CW', 'c/HC', 'c/JWTA', 'bwc/BK'
+    ],
+    redirects: {
+      'ab/WT': 'Will and Testament of `Abdu\'l-Bahá',
+      'se/BA': 'Bahá\'í Administration (book)',
+      'se/DND': 'Dawn of a New Day (book)',
+      'se/LDG1': 'Light of Divine Guidance',
+      'se/LDG2': 'Light of Divine Guidance',
+      'uhj/PWP': 'The Promise of World Peace',
+      'bwc/BK': 'Bahíyyih Khánum (book)',
+      'nz/DB': 'The Dawn-Breakers'
+    }
+  }),
+  new Site({
+    name: 'Wikipedia',
+    baseURL: 'https://en.wikipedia.org/wiki/',
+    missing: [
+      'b/PM', 'b/PB', 'b/SVFV',
+      'ab/ABL', 'ab/MF', 'ab/PUP', 'ab/SAB', 'ab/TAF', 'ab/TAB', 'ab/TN',
+      'se/ARO', 'se/CF', 'se/DND', 'se/DG', 'se/HE', 'se/LANZ', 'se/LDG1',
+      'se/LDG2', 'se/MA', 'se/MC', 'se/MBW', 'se/UD',
+      'bic/COL', 'bic/OCF', 'bic/PRH', 'bic/SB', 'c/BP', 'c/BE', 'c/CP',
+      'c/SCH', 'c/CW', 'c/HC', 'c/JWTA', 'bwc/BK'
+    ]
+  }),
+  new Site({
+    name: 'Bahaiworks',
+    baseURL: 'https://bahai.works/',
+    missing: [
+      'b/PB',
+      'ab/ABL', 'c/BWF', 'ab/MF', 'ab/PT', 'ab/MF', 'ab/SAB', 'ab/TAF',
+      'ab/TAB', 'ab/TDP', 'ab/TN', 'ab/WT',
+      'se/ARO', 'se/BA', 'se/CF', 'se/DND', 'se/DG', 'se/GPB', 'se/HE',
+      'se/LANZ', 'se/LDG1', 'se/LDG2', 'se/MA', 'se/MC', 'se/MBW', 'se/PDC',
+      'se/UD', 'se/WOB',
+      'uhj/PWP', 'bic/COL', 'bic/OCF', 'bic/PRH', 'bic/SB', 'c/BP', 'c/BE',
+      'c/CP', 'c/SCH', 'c/CW', 'c/HC', 'c/JWTA', 'je/BNE', 'bwc/BK'
+    ]
+  })
 ];
-const [baseURL] = baseURLs;
 
-const pageTitle = $('.pageTitle'),
-  textNode = pageTitle.firstChild,
-  // range = document.createRange(),
-  // workInfo = $('#workinfo'),
-  fontSize = '9pt',
-  newTextNode = textNode.cloneNode(true),
-  // Todo: Check: /http:\/\/reference\.bahai\.org\/en\/t\/\w{1,3}\/.+/u,
-  workPath = location.href.replace(
-
-    /http:\/\/reference\.bahai\.org\/en\/t\/(?<work>[^/]*\/[^/]*)\/.*$/u, '$<work>'
-  ),
-  work = (WritingsMap[workPath] || newTextNode.textContent).replace(/ /gu, '_');
-
+const fontSize = '9pt';
 /**
  *
  * @param {string} text
  * @returns {void}
  */
-function addSpan (text) {
-  const spanBegin = document.createElement('span');
-  spanBegin.style.fontSize = fontSize;
-  spanBegin.textContent = text;
-  pageTitle.append(spanBegin);
-}
+const addSpan = (text) => {
+  /* const spanBegin = */ jml('span', {
+    style: {fontSize}
+  }, [
+    text
+  ], titleHolder);
+};
 
-if (WritingsBehaviorMap[workPath]) {
-  // eslint-disable-next-line max-len -- Too long
-  WritingsBehaviorMap[workPath](work, baseURL); // lgtm [js/unvalidated-dynamic-method-call]
-}
+const createLinkForSite = (siteInstance) => {
+  const href = siteInstance.getCurrentURL();
+  const created = !siteInstance.isMissingCurrentWork();
+  return jml(
+    'a', {
+      href,
+      className: 'brl-injected-link',
+      target: '_blank',
+      style: {
+        fontSize,
+        color: created ? 'blue' : 'orange',
+        textDecoration: 'underline'
+      }
+    }, [
+      siteInstance.name
+    ]
+  );
+};
 
-const nbsp = '\u00A0';
+// e.g., https://www.bahai.org/library/authoritative-texts/bahaullah/
+const titleHolder = Site.getCurrentTitleHolder();
+
 addSpan(`${nbsp} ${nbsp} (`);
 
-siteNames.forEach((siteName, i) => {
-  const newNode = document.createElement('a'),
-    space = ' \u00A0',
-    created = !MissingWritingsMap[siteName].includes(workPath);
+sites.forEach((site, i) => {
+  site.currentWorkHasPerParagraphSupport(); // Todo
 
-  newNode.href = baseURLs[i] + encodeURIComponent(
-    SpecialWritingsMap[siteName][workPath] || work
-  ) + (created ? '' : '?action=edit');
+  const siteLink = createLinkForSite(site);
 
-  newNode.id = 'brl-injected-link';
-  newNode.target = '_blank';
-
-  const wikiText = siteName;
-  newNode.append(wikiText);
-
-  newNode.style.fontSize = fontSize;
-  newNode.style.color = created ? 'blue' : 'orange';
-  newNode.style.textDecoration = 'underline';
-
-  // workInfo.parentNode.insertBefore(space, workInfo);
-  // workInfo.parentNode.insertBefore(newNode, workInfo);
   if (i !== 0) {
-    pageTitle.append(space);
+    titleHolder.append(nbsp.repeat(2));
   }
-  pageTitle.append(newNode);
+  titleHolder.append(siteLink);
 });
 
 addSpan(')');
+})();

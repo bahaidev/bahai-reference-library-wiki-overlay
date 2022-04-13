@@ -32,9 +32,4 @@ function addParagraphClickListener (work, baseURL) {
   });
 }
 
-const WritingsBehaviorMap = {
-  'b/KA': addParagraphClickListener,
-  'b/KI': addParagraphClickListener
-};
-
-export default WritingsBehaviorMap;
+export default addParagraphClickListener;

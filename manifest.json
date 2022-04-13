@@ -8,12 +8,11 @@
   "version": "0.4.0",
   "homepage_url": "https://github.com/brettz9/bahai-reference-library-wiki-overlay",
 
-  "permissions": ["contextMenus", "*://reference.bahai.org/*"],
+  "permissions": ["contextMenus"],
 
   "content_scripts": [
     {
-      "matches": ["*://bahai.org/library/*"],
-      "run_at": "document_end",
+      "matches": ["https://bahai.org/*", "https://www.bahai.org/*"],
       "js": [
           "data/wiki-overlay.js"
       ]
@@ -21,13 +20,20 @@
   ],
 
   "web_accessible_resources": [
-    "data/utils.js",
-    "data/Writings-map.js",
-    "data/Writings-behavior-map.js"
+    {
+      "matches": ["https://bahai.org/*", "https://www.bahai.org/*"],
+      "resources": [
+        "data/vendor/jamilih/jml-es-noinnerh.js",
+        "data/addParagraphClickListener.js",
+        "data/Site.js",
+        "data/Writings-behavior-map.js"
+      ]
+    }
   ],
 
   "background": {
-    "service_worker": "/lib/background.js"
+    "service_worker": "/lib/background.js",
+    "type": "module"
   },
 
   "icons": {
