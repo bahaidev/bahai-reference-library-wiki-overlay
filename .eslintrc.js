@@ -8,7 +8,12 @@ module.exports = {
   },
   settings: {
     polyfills: [
-      'Promise.all'
+      'Array.from',
+      'fetch',
+      'Object.assign',
+      'Promise.all',
+      'URL',
+      'URLSearchParams'
     ]
   },
   extends: ['ash-nazg/sauron-overrides'],

@@ -1,5 +1,33 @@
 # CHANGES for `bahai-reflib-data`
 
+## 0.12.0
+
+- feat(`getFullInfoForUrl`): allow to get the full info for a main section
+  (opening line) URL
+
+## 0.11.0
+
+- feat(`getSectionInfoForWork`): add new method
+- feat(`getParagraphsForSectionId`): add new method
+- fix(`getSectionNamesForWork`): ensure returns from `mainSections` if not
+  found in `subSections` (will get first lines)
+- fix(`getUrlForWorkAndSection`): gets the paragraphs for a work and first line
+
+## 0.10.0
+
+- fix(`getWorks`): avoid returning duplicate work names
+- fix(section-building): avoid duplicate sections
+- feat: allow avoiding continuation checks in building
+
+## 0.9.4
+
+- fix: expose missing `getData.js` functions to public API
+
+## 0.9.3
+
+- fix: strip the slash in joined URL for sake of precise permission
+  requirements in Chrome extension
+
 ## 0.9.2
 
 - fix: ensure getting paragraph info for properly anchored URLs

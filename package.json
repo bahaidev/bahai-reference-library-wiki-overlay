@@ -21,7 +21,8 @@
     "webext-build": "npm run eslint && web-ext build",
     "eslint": "eslint --ext=vue,js,cjs,mjs,md,html .",
     "lint": "npm run eslint --",
-    "copy": "cp node_modules/webextension-polyfill/dist/browser-polyfill.js polyfills/browser-polyfill.js && cp node_modules/jamilih/dist/jml-es-noinnerh.js data/vendor/jamilih/jml-es-noinnerh.js && cp -r node_modules/bahai-reflib-data data/vendor && rm data/vendor/bahai-reflib-data/src/index-node.js"
+    "rollup": "rollup -c rollup.config.js",
+    "copy": "npm run rollup && cp node_modules/webextension-polyfill/dist/browser-polyfill.js polyfills/browser-polyfill.js && cp node_modules/jamilih/dist/jml-es-noinnerh.js data/vendor/jamilih/jml-es-noinnerh.js && cp -r node_modules/bahai-reflib-data data/vendor && rm data/vendor/bahai-reflib-data/src/index-node.js"
   },
   "keywords": [
     "bahai",
@@ -30,24 +31,25 @@
   ],
   "description": "Overlays the official Bahá'í Reference Library site (https://bahai.org/library) with links back to collaboratively editable wiki pages (at https://bahai9.com, https://bahaipedia.org, https://wikipedia.org, and https://bahai.works) allowing compilation of quotations and resources pertaining to any given work. Next to the heading title of each work are links which, when clicked, will visit the wiki page dedicated to collecting resources for the given book (authoritative quotations and resources, Bahá'í encyclopedic, public encyclopedic, or source text, respectively). \n\nWhere available, even individual paragraphs can be clicked to visit a wiki page dedicated to that specific paragraph (at present, this functionality is only available for the Kitab-i-Aqdas and links only lead to https://bahai9.com which provides links to topical compilation pages or provides other background on the verse in question).\n\nCurrently works for English only.\n\nThis add-on is an individual initiative, not sponsored by any Bahá'í administrative institution.",
   "engines": {
-    "node": ">=12"
+    "node": ">=14"
   },
   "dependencies": {
   },
   "devDependencies": {
     "@brettz9/eslint-plugin": "^1.0.4",
-    "bahai-reflib-data": "^0.9.2",
-    "eslint": "^8.13.0",
-    "eslint-config-ash-nazg": "33.0.0",
+    "@rollup/plugin-node-resolve": "^13.2.1",
+    "bahai-reflib-data": "^0.12.0",
+    "eslint": "^8.14.0",
+    "eslint-config-ash-nazg": "33.1.0",
     "eslint-config-standard": "^17.0.0",
     "eslint-plugin-array-func": "^3.1.7",
     "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-html": "^6.2.0",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsdoc": "^39.2.7",
+    "eslint-plugin-jsdoc": "^39.2.9",
     "eslint-plugin-markdown": "^2.2.1",
-    "eslint-plugin-n": "^15.1.0",
+    "eslint-plugin-n": "^15.2.0",
     "eslint-plugin-no-unsanitized": "^4.0.1",
     "eslint-plugin-no-use-extend-native": "^0.5.0",
     "eslint-plugin-promise": "^6.0.0",
@@ -55,6 +57,8 @@
     "eslint-plugin-standard": "^4.1.0",
     "eslint-plugin-unicorn": "^42.0.0",
     "jamilih": "^0.54.0",
+    "rollup": "^2.70.2",
+    "tippy.js": "^6.3.7",
     "webextension-polyfill": "^0.9.0"
   }
 }

@@ -52,18 +52,18 @@ on all of the wikis when the content is not yet ready.
 ## Todos
 
 1. Update add-ons to use `WebExtensions`.
-    1. See to-do in code re: avoiding applying to too many pages
-    1. Avoid whatever causes links being added twice to a page
+    1. See to-do in code
     1. Check whether orange coloring is still true and ask group
         re: creating stubs
-    1. Test Aqdas (and Iqan?)
-    1. See about updating to work with new https://bahai.org/library/ site
-1. Add scripts to copy similar files rather than having multiple source files
+    1. Toolbar: Add jump-to-page
+    1. Could create wiki links for documents without paragraph numbers
+        (including the opening line ones) just by ID and an auto-number
 
 ## Lower-priority to-dos
 
+1. Option to hide specific sites
 1. We might add links for Bahá'u'lláh, 'Abdu'l-Bahá, Shoghi Effendi,
     etc. at the top of their respective pages.
 1. Add `bahai.media`?
-1. If adding Q&A site, perhaps add links to that.
+1. If adding Q&A site, perhaps add links to that. Add tags, indexes?
 1. Update <http://brett-zamir.me/brl-wiki-overlay/> per release.

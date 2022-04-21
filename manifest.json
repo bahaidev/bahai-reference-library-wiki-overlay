@@ -8,16 +8,27 @@
   "version": "0.4.0",
   "homepage_url": "https://github.com/brettz9/bahai-reference-library-wiki-overlay",
 
-  "permissions": ["contextMenus"],
+  "permissions": ["contextMenus", "storage"],
+
+  "action": {
+    "default_title": "Bahá'í Reflib Search",
+    "default_popup": "search.html"
+  },
 
   "content_scripts": [
     {
       "matches": ["https://bahai.org/*", "https://www.bahai.org/*"],
       "js": [
-          "data/wiki-overlay.js"
+        "polyfills/browser-polyfill.js",
+        "data/wikiOverlay.js"
       ]
     }
   ],
+
+  "options_ui": {
+    "page": "options/options.html",
+    "browser_style": true
+  },
 
   "web_accessible_resources": [
     {
@@ -25,8 +36,22 @@
       "resources": [
         "data/vendor/jamilih/jml-es-noinnerh.js",
         "data/addParagraphClickListener.js",
-        "data/Site.js",
-        "data/Writings-behavior-map.js"
+        "data/getSite.js",
+        "data/getSites.js",
+        "data/Writings-behavior-map.js",
+        "data/vendor/tippy.js/tippy.esm.js",
+        "data/vendor/bahai-reflib-data/src/index-browser.js",
+        "data/vendor/bahai-reflib-data/src/getData.js",
+        "data/vendor/bahai-reflib-data/src/pathInfo.js",
+        "data/vendor/bahai-reflib-data/src/index.js",
+        "data/vendor/bahai-reflib-data/src/data/ids-to-works-sections-and-paragraphs-fa.json",
+        "data/vendor/bahai-reflib-data/src/data/ids-to-works-sections-and-paragraphs.json",
+        "data/vendor/bahai-reflib-data/src/data/collections.json",
+        "data/vendor/bahai-reflib-data/src/data/collections-fa.json",
+        "data/vendor/bahai-reflib-data/src/data/works.json",
+        "data/vendor/bahai-reflib-data/src/data/works-fa.json",
+        "data/vendor/bahai-reflib-data/src/data/sections.json",
+        "data/vendor/bahai-reflib-data/src/data/sections-fa.json"
       ]
     }
   ],
@@ -37,9 +62,9 @@
   },
 
   "icons": {
-      "16": "icons/icon16.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   },
 
   "default_locale": "en",
