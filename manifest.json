@@ -56,11 +56,6 @@
     }
   ],
 
-  "background": {
-    "service_worker": "/lib/background.js",
-    "type": "module"
-  },
-
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
