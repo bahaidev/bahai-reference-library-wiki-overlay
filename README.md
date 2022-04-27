@@ -20,7 +20,6 @@ page dedicated to that specific paragraph (at present, this functionality
 is only available for:
 
 - The Kitáb-i-Aqdas
-- The Kitáb-i-Íqan
 - The Hidden Words
 
 Per paragraph links only lead to <https://bahai9.com> (which provides links
