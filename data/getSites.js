@@ -246,6 +246,11 @@ async function getSites () {
         baseURL: 'https://bahai-browser.org/indexes/',
         wiki: false,
         redirects: {
+          mainSections: {
+            'authoritative-texts/bahaullah/kitab-i-aqdas': 'json/' +
+              '?entriesOrLinksPages=2&collapse=collapseSearchEntries' +
+              '&booksPages=1'
+          },
           subSections: {
             'authoritative-texts/bahaullah/kitab-i-aqdas/5': 'json/',
             'authoritative-texts/bahaullah/kitab-i-aqdas/6': 'json/',
