@@ -52,16 +52,15 @@ on all of the wikis when the content is not yet ready.
 ## Todos
 
 1. Update add-ons to use `WebExtensions`.
-    1. See to-do in code
-    1. Check whether orange coloring is still true and ask group
-        re: creating stubs
-    1. Toolbar: Add jump-to-page
-    1. Could create wiki links for documents without paragraph numbers
-        (including the opening line ones) just by ID and an auto-number
+    1. Populate missing, redirects, etc. per group
+    2. Submit to add-ons site
 
 ## Lower-priority to-dos
 
+1. Get localized into Persian
 1. Option to hide specific sites
+1. Could create wiki links for documents without paragraph numbers
+    (including the opening line ones) just by ID and an auto-number
 1. We might add links for Bahá'u'lláh, 'Abdu'l-Bahá, Shoghi Effendi,
     etc. at the top of their respective pages.
 1. Add `bahai.media`?

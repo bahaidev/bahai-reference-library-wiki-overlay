@@ -244,7 +244,6 @@ const getSite = async () => {
         ? $e('h2.current-page')
         : Site.#isCollection()
           ? $e('.body-content h1.tabtitle')
-          // Todo: For secondary collections and individual pages
           : Site.#isMainSection()
             ? $e('h1.publication-page-title')
             : Site.#isSubSection()
