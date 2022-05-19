@@ -82,6 +82,9 @@ Information is also available at <https://bahai-library.com/zamir_brl_wiki_overl
 1. Update add-ons to use `WebExtensions`.
     1. Populate missing, redirects, etc. per group
     2. Submit to add-ons site
+1. Allow for mouse drag to obtain a precise citation (as could be forwarded to
+    an annotation site; might in fact store this locally as we do with
+    <https://bahai-browser.org> or store in remotely)
 
 ## Lower-priority to-dos
 
