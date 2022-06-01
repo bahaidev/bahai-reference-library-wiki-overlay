@@ -92,11 +92,12 @@ async function addTitleLinks (container) {
     return await createLinkForSite(site, container);
   }))).filter(Boolean);
 
+  const itemsPerLine = 5;
   siteLinks.forEach((siteLink, i) => {
     if (i !== 0) {
       titleHolder.append(nbsp.repeat(2));
     }
-    if (!(i % 4)) {
+    if (!(i % itemsPerLine)) {
       titleHolder.append(document.createElement('br'));
     }
     titleHolder.append(siteLink);

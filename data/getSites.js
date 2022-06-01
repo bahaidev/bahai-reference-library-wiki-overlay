@@ -18,7 +18,6 @@ async function getSites () {
   const Site = await getSite();
 
   // CONFIG
-  // Add bahai.media? bahai-library.com/tags ? bahai-browser.org/indexes/ ?
   // Allow disabling any in preferences?
   return {
     Site,
@@ -238,6 +237,11 @@ async function getSites () {
             'authoritative-texts/bahaullah/hidden-words/3': 'Hidden Words'
           }
         }
+      }),
+      new Site({
+        name: 'Bahai.media',
+        baseURL: 'https://bahai.media/Category:',
+        wiki: true
       }),
       // Crashing in Chrome (but not Firefox)
       new Site({
