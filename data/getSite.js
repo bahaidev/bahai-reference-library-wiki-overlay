@@ -547,10 +547,10 @@ const getSite = async () => {
      * @param {Node} container
      * @returns {Promise<string>}
      */
-    async getCurrentAnchorBaseURL (container) {
+    getCurrentAnchorBaseURL (container) {
       return `${
-        (await this.getCurrentURL(container))
-      }/${this.currentWorkByVerseSupport()}`;
+        this.baseURL
+      }${this.currentWorkByVerseSupport()}`;
     }
 
     /**

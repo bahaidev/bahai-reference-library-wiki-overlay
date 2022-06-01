@@ -132,7 +132,7 @@ async function addAnchorLinks (container) {
       return null;
     }
 
-    const anchorLink = await site.getCurrentAnchorBaseURL(container);
+    const anchorLink = site.getCurrentAnchorBaseURL(container);
 
     return await Promise.all([
       anchorLink,

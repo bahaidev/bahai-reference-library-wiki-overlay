@@ -37,12 +37,12 @@ async function getSites () {
         },
         byVerseSupport: {
           section: {
-            'authoritative-texts/bahaullah/hidden-words/2': 'Arabic/num',
-            'authoritative-texts/bahaullah/hidden-words/3': 'Persian/num'
+            'authoritative-texts/bahaullah/hidden-words/2': 'Hidden Words/Arabic/num',
+            'authoritative-texts/bahaullah/hidden-words/3': 'Hidden Words/Persian/num'
           },
           work: {
-            'authoritative-texts/bahaullah/kitab-i-aqdas': 'par',
-            'authoritative-texts/bahaullah/kitab-i-iqan': 'par'
+            'authoritative-texts/bahaullah/kitab-i-aqdas': 'Kitáb-i-Aqdas/par',
+            'authoritative-texts/bahaullah/kitab-i-iqan': 'Kitáb-i-Íqán/par'
           }
         }
       }),
@@ -256,15 +256,21 @@ async function getSites () {
               '&books=2'
           },
           subSections: {
-            'authoritative-texts/bahaullah/kitab-i-aqdas/5': 'json/',
-            'authoritative-texts/bahaullah/kitab-i-aqdas/6': 'json/',
-            'authoritative-texts/bahaullah/kitab-i-aqdas/7': 'json/'
+            'authoritative-texts/bahaullah/kitab-i-aqdas/5': 'json/' +
+              '?entriesOrLinks=2&collapse=collapseSearchEntriesPages' +
+              '&books=2',
+            'authoritative-texts/bahaullah/kitab-i-aqdas/6': 'json/' +
+              '?entriesOrLinks=2&collapse=collapseSearchEntriesPages' +
+              '&books=2',
+            'authoritative-texts/bahaullah/kitab-i-aqdas/7': 'json/' +
+              '?entriesOrLinks=2&collapse=collapseSearchEntriesPages' +
+              '&books=2'
           }
         },
         byVerseSupport: {
           work: {
             'authoritative-texts/bahaullah/kitab-i-aqdas':
-              '?entriesOrLinksPages=2&collapse=collapseSearchEntries' +
+              'json/?entriesOrLinksPages=2&collapse=collapseSearchEntries' +
               '&booksPages=2&indexPage=K'
           }
         }
