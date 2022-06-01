@@ -252,8 +252,8 @@ async function getSites () {
         redirects: {
           mainSections: {
             'authoritative-texts/bahaullah/kitab-i-aqdas': 'json/' +
-              '?entriesOrLinksPages=2&collapse=collapseSearchEntries' +
-              '&booksPages=1'
+              '?entriesOrLinks=2&collapse=collapseSearchEntriesPages' +
+              '&books=2'
           },
           subSections: {
             'authoritative-texts/bahaullah/kitab-i-aqdas/5': 'json/',
@@ -265,7 +265,7 @@ async function getSites () {
           work: {
             'authoritative-texts/bahaullah/kitab-i-aqdas':
               '?entriesOrLinksPages=2&collapse=collapseSearchEntries' +
-              '&booksPages=1&indexPage=K'
+              '&booksPages=2&indexPage=K'
           }
         }
       }),
