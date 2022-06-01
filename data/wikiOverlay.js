@@ -206,7 +206,9 @@ async function addAnchorLinks (container) {
           triggerTarget: anchorHolder,
           // eslint-disable-next-line object-shorthand -- Closure
           onTrigger: (inst) => {
-            if (inst.reference.$activated && inst.reference.href === url) {
+            if (inst.reference.$activated &&
+              inst.reference.href === encodeURI(url)
+            ) {
               inst.enable();
             } else {
               inst.disable();
