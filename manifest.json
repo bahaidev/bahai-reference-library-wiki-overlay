@@ -64,10 +64,10 @@
 
   "default_locale": "en",
 
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "jid0-ySOiEX15dyVpuWRhvsrdHdR04w0@jetpack",
-      "strict_min_version": "58.0.2"
+      "strict_min_version": "111.0.1"
     }
   }
 }
