@@ -1,5 +1,5 @@
 /* eslint-env browser, webextensions -- Has own globals */
-import {jml} from '../data/vendor/jamilih/jml-es-noinnerh.js';
+import {jml, body} from '../data/vendor/jamilih/jml-es-noinnerh.js';
 
 /**
  * @param {...string} args
@@ -10,7 +10,7 @@ function _ (...args) {
 }
 
 document.title = _('extensionName'); // If switch to tabs
-(async () => {
+
 jml('section', await Promise.all([
   ['brlMainCollectionHidden'],
   ['brlCollectionHidden'],
@@ -44,5 +44,4 @@ jml('section', await Promise.all([
     ]],
     ['br']
   ]];
-})), document.body);
-})();
+})), body);

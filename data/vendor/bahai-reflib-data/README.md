@@ -18,7 +18,7 @@ the unique ID will redirect to the URL and potentially anchor that it
 targets.
 
 A **server** is available via
-[bahai-reflib-data-server](https://github.com/brettz9/bahai-reflib-data-server).
+[bahai-reflib-data-server](https://github.com/bahaidev/bahai-reflib-data-server).
 
 ## Development
 
@@ -31,11 +31,11 @@ A **server** is available via
 
 ## To-dos
 
-1. Utilize in restoration of **webextensions**-based Bahá'í Reference Library
-    Wiki Overlay add-on
+1. Fix apparent bug with Kitáb-i-Aqdas not gathering paragraphs
 
 ## Possible to-dos
 
+1. Gather mini-sections (ensure talks are included)
 1. Waiting: Once ready, add the **Arabic** or any other languages added later
     (The Arabic has not been ported to the new site.) Should just need to
     populate the `allLanguages` array. (We could scrape "Other languages"

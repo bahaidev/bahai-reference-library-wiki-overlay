@@ -126,6 +126,33 @@ async function getWorkSectionAndParagraphForId (id, language) {
 }
 
 /**
+* @param {string} work
+* @param {Language} [language] If none is provided, will check all languages
+* @returns {Promise<ParagraphIdInfo>}
+ */
+async function getSectionsAndParagraphsForWork (work, language) {
+  const sectionsAndParagraphs = await getSectionsAndParagraphsToIds(
+    language
+  );
+  let sections = sectionsAndParagraphs[work];
+  if (!sections) {
+    // May be using different title
+    const [works, sectionsHolder] = await Promise.all([
+      getWorks(language),
+      getSections(language)
+    ]);
+    const url = works.find(({title}) => {
+      return title === work;
+    })?.url;
+    const title = sectionsHolder.mainSections.find(({parentUrl}) => {
+      return url === parentUrl;
+    })?.title;
+    sections = sectionsAndParagraphs[title];
+  }
+  return sections;
+}
+
+/**
  * @param {string} work
  * @param {string} section
  * @param {number} paragraph
@@ -135,9 +162,10 @@ async function getWorkSectionAndParagraphForId (id, language) {
 async function getIdForWorkSectionAndParagraph (
   work, section, paragraph, language
 ) {
-  return (await getSectionsAndParagraphsToIds(
-    language
-  ))[work][section][paragraph];
+  const sectionsAndParagraphs = await getSectionsAndParagraphsForWork(
+    work, language
+  );
+  return sectionsAndParagraphs[section][paragraph];
 }
 
 /**
@@ -149,16 +177,14 @@ async function getIdForWorkSectionAndParagraph (
 async function getParagraphsForWorkAndSection (
   work, section, language
 ) {
-  const sectionsAndParagraphs = await getSectionsAndParagraphsToIds(
-    language
+  const sectionsAndParagraphs = await getSectionsAndParagraphsForWork(
+    work, language
   );
-
-  const sections = sectionsAndParagraphs[work];
-  if (!sections) {
+  if (!sectionsAndParagraphs) {
     return undefined;
   }
 
-  const paragraphsToIds = sections[section];
+  const paragraphsToIds = sectionsAndParagraphs[section];
   if (!paragraphsToIds) {
     return undefined;
   }

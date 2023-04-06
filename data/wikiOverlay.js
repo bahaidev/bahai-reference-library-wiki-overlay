@@ -8,6 +8,7 @@ const getSitesSource = browser.runtime.getURL(
   '/data/getSites.js'
 );
 
+// eslint-disable-next-line unicorn/prefer-top-level-await -- Needed in overlay
 (async () => {
 const [
   {$, jml, nbsp},

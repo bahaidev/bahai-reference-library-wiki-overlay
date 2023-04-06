@@ -1,5 +1,14 @@
 # CHANGES for `bahai-reflib-data`
 
+## 0.12.2
+
+- fix(`getIdForWorkSectionAndParagraph`): check for alternative title
+- chore: update devDeps.
+
+## 0.12.1
+
+- fix(`getParagraphsForWorkAndSection`): check for alternative title
+
 ## 0.12.0
 
 - feat(`getFullInfoForUrl`): allow to get the full info for a main section
