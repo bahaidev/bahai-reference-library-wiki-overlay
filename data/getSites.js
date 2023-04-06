@@ -253,7 +253,13 @@ async function getSites () {
           mainSections: {
             'authoritative-texts/bahaullah/kitab-i-aqdas': 'json/' +
               '?entriesOrLinks=2&collapse=collapseSearchEntriesPages' +
-              '&books=2'
+              '&books=2',
+            'authoritative-texts/bahaullah/kitab-i-iqan': 'json/' +
+              '?entriesOrLinks=2&collapse=collapseSearchEntriesPages' +
+              '&books=3',
+            'authoritative-texts/bahaullah/gleanings-writings-bahaullah': 'json/' +
+              '?entriesOrLinks=2&collapse=collapseSearchEntriesPages' +
+              '&books=1'
           },
           subSections: {
             'authoritative-texts/bahaullah/kitab-i-aqdas/5': 'json/' +
