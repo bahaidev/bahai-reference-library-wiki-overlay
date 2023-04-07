@@ -8,8 +8,8 @@ devDependencies:
     specifier: ^15.0.2
     version: 15.0.2(rollup@3.20.2)
   bahai-reflib-data:
-    specifier: ^0.12.2
-    version: 0.12.2
+    specifier: ^0.13.0
+    version: 0.13.0
   bahai-reflib-data-server:
     specifier: ^0.8.2
     version: 0.8.2
@@ -18,7 +18,7 @@ devDependencies:
     version: 8.37.0
   eslint-config-ash-nazg:
     specifier: 34.9.1
-    version: 34.9.1(@brettz9/eslint-plugin@1.0.4)(eslint-config-standard@17.0.0)(eslint-plugin-array-func@3.1.8)(eslint-plugin-compat@4.1.2)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-html@7.1.0)(eslint-plugin-import@2.27.5)(eslint-plugin-jsdoc@40.1.1)(eslint-plugin-markdown@3.0.0)(eslint-plugin-n@15.7.0)(eslint-plugin-no-unsanitized@4.0.2)(eslint-plugin-no-use-extend-native@0.5.0)(eslint-plugin-promise@6.1.1)(eslint-plugin-sonarjs@0.19.0)(eslint-plugin-unicorn@46.0.0)(eslint@8.37.0)
+    version: 34.9.1(@brettz9/eslint-plugin@1.0.4)(eslint-config-standard@17.0.0)(eslint-plugin-array-func@3.1.8)(eslint-plugin-compat@4.1.4)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-html@7.1.0)(eslint-plugin-import@2.27.5)(eslint-plugin-jsdoc@40.1.1)(eslint-plugin-markdown@3.0.0)(eslint-plugin-n@15.7.0)(eslint-plugin-no-unsanitized@4.0.2)(eslint-plugin-no-use-extend-native@0.5.0)(eslint-plugin-promise@6.1.1)(eslint-plugin-sonarjs@0.19.0)(eslint-plugin-unicorn@46.0.0)(eslint@8.37.0)
   eslint-config-standard:
     specifier: ^17.0.0
     version: 17.0.0(eslint-plugin-import@2.27.5)(eslint-plugin-n@15.7.0)(eslint-plugin-promise@6.1.1)(eslint@8.37.0)
@@ -26,8 +26,8 @@ devDependencies:
     specifier: ^3.1.8
     version: 3.1.8(eslint@8.37.0)
   eslint-plugin-compat:
-    specifier: ^4.1.2
-    version: 4.1.2(eslint@8.37.0)
+    specifier: ^4.1.4
+    version: 4.1.4(eslint@8.37.0)
   eslint-plugin-eslint-comments:
     specifier: ^3.2.0
     version: 3.2.0(eslint@8.37.0)
@@ -175,10 +175,6 @@ packages:
     resolution: {integrity: sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==}
     dev: true
 
-  /@mdn/browser-compat-data@3.3.14:
-    resolution: {integrity: sha512-n2RC9d6XatVbWFdHLimzzUJxJ1KY8LdjqrW6YvGPiRmsHkhOUx74/Ct10x5Yo7bC/Jvqx7cDEW8IMPv/+vwEzA==}
-    dev: true
-
   /@mdn/browser-compat-data@5.2.48:
     resolution: {integrity: sha512-D5cAp2r0Eq9yN4lBNkVpHzoULHYeCQjLFF7PbD/LBBCuWXPIB4X3rbi12REvaCnEar/0UiSSfjIMWxFAw0vIJg==}
     dev: true
@@ -239,6 +235,10 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
       rollup: 3.20.2
+    dev: true
+
+  /@tsconfig/node14@1.0.3:
+    resolution: {integrity: sha512-ysT8mhdixWK6Hw3i1V2AeRqZ5WfXg1G43mqoYlM2nc6388Fq5jcXyr5mRsqViLx/GJYdoL0bfXD8nmF+Zn/Iow==}
     dev: true
 
   /@types/estree@1.0.0:
@@ -363,10 +363,10 @@ packages:
       es-shim-unscopables: 1.0.0
     dev: true
 
-  /ast-metadata-inferer@0.7.0:
-    resolution: {integrity: sha512-OkMLzd8xelb3gmnp6ToFvvsHLtS6CbagTkFQvQ+ZYFe3/AIl9iKikNR9G7pY3GfOR/2Xc222hwBjzI7HLkE76Q==}
+  /ast-metadata-inferer@0.8.0:
+    resolution: {integrity: sha512-jOMKcHht9LxYIEQu+RVd22vtgrPaVCtDRQ/16IGmurdzxvYbDd5ynxjnyrzLnieG96eTcAyaoj/wN/4/1FyyeA==}
     dependencies:
-      '@mdn/browser-compat-data': 3.3.14
+      '@mdn/browser-compat-data': 5.2.48
     dev: true
 
   /available-typed-arrays@1.0.5:
@@ -389,6 +389,15 @@ packages:
 
   /bahai-reflib-data@0.12.2:
     resolution: {integrity: sha512-GUjQWXYunTjpX7PbW20quyxswM6VqCI1pe8Xa/thEPURvZMPHtXQiyx8AN9iILSgE4BYOOISxxWDEpPkewrRdw==}
+    engines: {node: '>=14.0.0'}
+    dependencies:
+      file-fetch: 1.7.0
+    transitivePeerDependencies:
+      - encoding
+    dev: true
+
+  /bahai-reflib-data@0.13.0:
+    resolution: {integrity: sha512-v9eMOILmm8KVbcVDgJR6LwNIkjz0S/nIShZOf5l2ojdM5MKQ2FGFbFHDdBeTAdInFCNEwJ5UBsnk54RlJylppA==}
     engines: {node: '>=14.0.0'}
     dependencies:
       file-fetch: 1.7.0
@@ -804,7 +813,7 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /eslint-config-ash-nazg@34.9.1(@brettz9/eslint-plugin@1.0.4)(eslint-config-standard@17.0.0)(eslint-plugin-array-func@3.1.8)(eslint-plugin-compat@4.1.2)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-html@7.1.0)(eslint-plugin-import@2.27.5)(eslint-plugin-jsdoc@40.1.1)(eslint-plugin-markdown@3.0.0)(eslint-plugin-n@15.7.0)(eslint-plugin-no-unsanitized@4.0.2)(eslint-plugin-no-use-extend-native@0.5.0)(eslint-plugin-promise@6.1.1)(eslint-plugin-sonarjs@0.19.0)(eslint-plugin-unicorn@46.0.0)(eslint@8.37.0):
+  /eslint-config-ash-nazg@34.9.1(@brettz9/eslint-plugin@1.0.4)(eslint-config-standard@17.0.0)(eslint-plugin-array-func@3.1.8)(eslint-plugin-compat@4.1.4)(eslint-plugin-eslint-comments@3.2.0)(eslint-plugin-html@7.1.0)(eslint-plugin-import@2.27.5)(eslint-plugin-jsdoc@40.1.1)(eslint-plugin-markdown@3.0.0)(eslint-plugin-n@15.7.0)(eslint-plugin-no-unsanitized@4.0.2)(eslint-plugin-no-use-extend-native@0.5.0)(eslint-plugin-promise@6.1.1)(eslint-plugin-sonarjs@0.19.0)(eslint-plugin-unicorn@46.0.0)(eslint@8.37.0):
     resolution: {integrity: sha512-UO/I+TjmQ3DzYexk4vz0suUkbrpZ5/K+HuLh9MtaZL47tXmpesjYgbT8b9R0LGWGNQexPRESk85zUdk4Ox4C4Q==}
     engines: {node: '>=14.19.1'}
     peerDependencies:
@@ -829,7 +838,7 @@ packages:
       eslint: 8.37.0
       eslint-config-standard: 17.0.0(eslint-plugin-import@2.27.5)(eslint-plugin-n@15.7.0)(eslint-plugin-promise@6.1.1)(eslint@8.37.0)
       eslint-plugin-array-func: 3.1.8(eslint@8.37.0)
-      eslint-plugin-compat: 4.1.2(eslint@8.37.0)
+      eslint-plugin-compat: 4.1.4(eslint@8.37.0)
       eslint-plugin-eslint-comments: 3.2.0(eslint@8.37.0)
       eslint-plugin-html: 7.1.0
       eslint-plugin-import: 2.27.5(eslint@8.37.0)
@@ -905,14 +914,15 @@ packages:
       eslint: 8.37.0
     dev: true
 
-  /eslint-plugin-compat@4.1.2(eslint@8.37.0):
-    resolution: {integrity: sha512-DNrQgDi5L4mAL4FdFboKBlSRg6MWfd75eA7K91lMjtP5ryN+O11qT2FDn7Z6zqy6sZ4sJawUR5V75qzB6l0CBg==}
-    engines: {node: '>=16.x'}
+  /eslint-plugin-compat@4.1.4(eslint@8.37.0):
+    resolution: {integrity: sha512-RxySWBmzfIROLFKgeJBJue2BU/6vM2KJWXWAUq+oW4QtrsZXRxbjgxmO1OfF3sHcRuuIenTS/wgo3GyUWZF24w==}
+    engines: {node: '>=14.x'}
     peerDependencies:
       eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
       '@mdn/browser-compat-data': 5.2.48
-      ast-metadata-inferer: 0.7.0
+      '@tsconfig/node14': 1.0.3
+      ast-metadata-inferer: 0.8.0
       browserslist: 4.21.5
       caniuse-lite: 1.0.30001474
       eslint: 8.37.0
