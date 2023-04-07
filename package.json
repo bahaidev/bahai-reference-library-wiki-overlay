@@ -40,7 +40,7 @@
     "@brettz9/eslint-plugin": "^1.0.4",
     "@rollup/plugin-node-resolve": "^15.0.2",
     "bahai-reflib-data": "^0.13.0",
-    "bahai-reflib-data-server": "^0.8.2",
+    "bahai-reflib-data-server": "^0.9.0",
     "eslint": "^8.37.0",
     "eslint-config-ash-nazg": "34.9.1",
     "eslint-config-standard": "^17.0.0",
