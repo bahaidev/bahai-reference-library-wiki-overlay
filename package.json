@@ -5,11 +5,11 @@
   "author": "Brett Zamir",
   "type": "module",
   "contributors": [],
-  "bugs": "https://github.com/brettz9/bahai-reference-library-wiki-overlay/issues",
+  "bugs": "https://github.com/bahaidev/bahai-reference-library-wiki-overlay/issues",
   "homepage": "http://brett-zamir.me/brl-wiki-overlay/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/brettz9/bahai-reference-library-wiki-overlay"
+    "url": "https://github.com/bahaidev/bahai-reference-library-wiki-overlay"
   },
   "scripts": {
     "webext-lint": "web-ext lint",
