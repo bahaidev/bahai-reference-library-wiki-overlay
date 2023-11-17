@@ -6,7 +6,6 @@ const getDataSource = browser.runtime.getURL(
   '/data/vendor/bahai-reflib-data/src/getData.js'
 );
 
-// eslint-disable-next-line unicorn/no-unsafe-regex -- Todo
 const collectionPattern = /^\/library\/(?<mainCollection>[^/]+)(?:\/(?<collection>[^/]+))?(?:\/(?<mainSection>[^/]+))?(?:\/(?<subSection>[^/]+))?(?:\/(?<extraSection>[^/]+))?\/?$/u;
 
 /**
@@ -46,7 +45,7 @@ const getURLGroups = (container) => {
 };
 
 const wikifyLink = (link) => {
-  return link.replace(/ /gu, '_');
+  return link.replaceAll(' ', '_');
 };
 
 const getSite = async () => {
@@ -385,19 +384,19 @@ const getSite = async () => {
      * @param {string} cfg.name
      * @param {string} cfg.baseURL
      * @param {boolean} cfg.wiki
-     * @param {boolean} [cfg.whitelist=false] Set to true if you do not wish
+     * @param {boolean} [cfg.whitelist] Set to true if you do not wish
      *   to have any fallbacks for redirects
-     * @param {boolean} [cfg.whitelistExtra=false] Set to true if you do not
+     * @param {boolean} [cfg.whitelistExtra] Set to true if you do not
      *   wish to have an extra section fallback for redirecting
-     * @param {boolean} [cfg.whitelistSection=false] Set to true if you do not
+     * @param {boolean} [cfg.whitelistSection] Set to true if you do not
      *   wish to have a section fallback for redirecting
-     * @param {boolean} [cfg.whitelistWork=false] Set to true if you do not
+     * @param {boolean} [cfg.whitelistWork] Set to true if you do not
      *   wish to have a work fallback for redirecting
-     * @param {boolean} [cfg.whitelistCollection=false] Set to true if you do
+     * @param {boolean} [cfg.whitelistCollection] Set to true if you do
      *   not wish to have a collection fallback for redirecting
-     * @param {boolean} [cfg.whitelistMainCollection=false] Set to true if you
+     * @param {boolean} [cfg.whitelistMainCollection] Set to true if you
      *   do not wish to have a main collection fallback for redirecting
-     * @param {boolean} [cfg.defaultUncreated=false] Set to true if you wish
+     * @param {boolean} [cfg.defaultUncreated] Set to true if you wish
      *   orange links to be created not based on `missing` but if not handled
      * @param {{
      *   mainCollections: Object<string, string>,
@@ -410,7 +409,7 @@ const getSite = async () => {
      *   mainSections: Object<string, string>,
      *   subSections: Object<string, string>,
      *   extraSections: Object<string, string>
-     * }} [cfg.missing={mainSections: [], subSections: []}]
+     * }} [cfg.missing]
      * @param {{
      *   mainCollections: Object<string, string>,
      *   collections: Object<string, string>,
@@ -421,7 +420,7 @@ const getSite = async () => {
      *   under our control at least should have redirects.
      * @param {{
      *   work: Object<string, string>
-     * }} [cfg.byVerseSupport={}] Works for which per-paragraph wiki pages
+     * }} [cfg.byVerseSupport] Works for which per-paragraph wiki pages
      *   are available.
      */
     constructor ({
@@ -544,10 +543,9 @@ const getSite = async () => {
     }
 
     /**
-     * @param {Node} container
      * @returns {Promise<string>}
      */
-    getCurrentAnchorBaseURL (container) {
+    getCurrentAnchorBaseURL () {
       return `${
         this.baseURL
       }${this.currentWorkByVerseSupport()}`;

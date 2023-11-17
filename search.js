@@ -8,7 +8,7 @@ import {
   './data/vendor/bahai-reflib-data/src/index-browser.js';
 
 import setChooseWorkSectionParagraph from
-  // eslint-disable-next-line max-len -- Too Long
+  // eslint-disable-next-line @stylistic/max-len -- Too Long
   './data/vendor/bahai-reflib-data-server/views/set-choose-work-section-paragraph.js';
 
 import './polyfills/browser-polyfill.js';

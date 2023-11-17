@@ -1,4 +1,4 @@
-/* eslint-disable max-len -- Some titles are long */
+/* eslint-disable @stylistic/max-len -- Some titles are long */
 
 const getSiteSource = browser.runtime.getURL('./data/getSite.js');
 

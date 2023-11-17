@@ -85,7 +85,7 @@ async function addTitleLinks (container) {
 
   addSpan(`${nbsp} ${nbsp} ${nbsp} `);
 
-  const siteLinks = (await Promise.all(sites.map(async (site, i) => {
+  const siteLinks = (await Promise.all(sites.map(async (site) => {
     if (site.isHidden()) {
       return null;
     }
@@ -125,7 +125,7 @@ async function addAnchorLinks (container) {
     Site.areAnchorLinkIframesHidden()
   ]);
 
-  const anchorLinks = (await Promise.all(sites.map(async (site, i) => {
+  const anchorLinks = (await Promise.all(sites.map(async (site) => {
     if (
       site.isHidden() ||
       !site.currentWorkByVerseSupport() || anchorLinksHidden
@@ -150,7 +150,7 @@ async function addAnchorLinks (container) {
     return anchorHolder.textContent;
   });
 
-  anchorLinks.forEach(([anchorLink, siteName], i) => {
+  anchorLinks.forEach(([anchorLink, siteName]) => {
     anchorHolders.forEach((anchorHolder, j) => {
       const {backgroundColor} = anchorHolder.style;
       const url = anchorLink + anchors[j];
