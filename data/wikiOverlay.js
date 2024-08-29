@@ -19,7 +19,7 @@ const [
   tippySource,
   getSitesSource
 ].map((source) => {
-  // eslint-disable-next-line no-unsanitized/method -- Own files
+  // // eslint-disable-next-line no-unsanitized/method -- Own files
   return import(source);
 }));
 

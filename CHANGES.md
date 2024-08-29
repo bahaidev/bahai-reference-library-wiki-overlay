@@ -1,5 +1,9 @@
 # ?
 
+- chore: update devDeps.
+
+# 0.3.0 <= 1.1.0
+
 - License: Rename file to reflect convention of capitalization and to indicate type (MIT)
 - Update URLs (bahaipedia, bahai.works) and sites now using https
 - Linting (Markdown): Add empty `.remarkrc`

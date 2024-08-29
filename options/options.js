@@ -24,7 +24,7 @@ jml('section', await Promise.all([
   try {
     ({[preferenceKey]: enabled = false} =
         await browser.storage.local.get(preferenceKey));
-  } catch (err) {}
+  } catch {}
   return ['label', [
     ['input', {
       type: 'checkbox',

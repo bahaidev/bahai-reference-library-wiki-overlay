@@ -11,7 +11,7 @@ async function getSites () {
   ] = await Promise.all([
     getSiteSource
   ].map((source) => {
-    // eslint-disable-next-line no-unsanitized/method -- Own files
+    // // eslint-disable-next-line no-unsanitized/method -- Own files
     return import(source);
   }));
 

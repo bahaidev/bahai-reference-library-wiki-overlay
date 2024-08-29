@@ -2,7 +2,5 @@
 
 module.exports = {
   reject: [
-    // Until support flat config
-    'eslint-plugin-array-func'
   ]
 };
